@@ -1,0 +1,5 @@
+- hosts: localhost
+  vars:
+    motd_message: This is the new message
+  roles:
+    - kbrebanov.motd

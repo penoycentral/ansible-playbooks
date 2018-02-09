@@ -1,0 +1,28 @@
+---
+# tasks file for motd
+
+- name: Include distribution specific variables
+  include_vars: "{{ ansible_distribution }}.yml"
+  tags:
+    - motd
+
+- include: CentOS.yml
+  when: ansible_distribution == "CentOS"
+  tags:
+    - motd
+
+- include: Ubuntu.yml
+  when: ansible_distribution == "Ubuntu"
+  tags:
+    - motd
+
+- name: Create motd file
+  become: yes
+  template:
+    src: motd.j2
+    dest: /etc/motd
+    owner: root
+    group: root
+    mode: 0644
+  tags:
+    - motd

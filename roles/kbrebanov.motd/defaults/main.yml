@@ -1,0 +1,5 @@
+---
+# defaults file for motd
+
+motd_ascii_logo: ""
+motd_message: "Welcome to {{ ansible_hostname }}"
