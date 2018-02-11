@@ -1,4 +1,4 @@
-- hosts: localhost
+- hosts: all
   vars:
     motd_message: This is the new message
   roles:
