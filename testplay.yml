@@ -1,3 +1,3 @@
 - hosts: localhost
   tasks:
-    - command: touch /tmp/foo.conf
+    - command: touch /var/tmp/foo.txt
