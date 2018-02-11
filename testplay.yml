@@ -1,3 +1,7 @@
 - hosts: localhost
   tasks:
-    - command: touch /var/tmp/foo.txt
+    - name: running simple command
+      command: touch /var/tmp/foo.txt
+      register: result
+    - debug:
+      var: result
