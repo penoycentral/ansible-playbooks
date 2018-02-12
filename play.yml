@@ -3,3 +3,4 @@
     motd_message: "Welcome to {{ ansible_hostname }}"
   roles:
     - kbrebanov.motd
+    - bennojoy.ntp
