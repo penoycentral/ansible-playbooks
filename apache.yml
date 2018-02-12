@@ -1,0 +1,6 @@
+- hosts: all
+  tasks:
+    - name: install apache webserver
+      package:
+        name: httpd
+        state: present
