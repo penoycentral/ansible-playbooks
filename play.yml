@@ -4,3 +4,18 @@
   roles:
     - kbrebanov.motd
     - bennojoy.ntp
+  tasks:
+    - name: install apache webserver
+      package:
+        name: httpd
+        state: present
+    - name: start and enable http service
+      service:
+        name: httpd
+        enabled: yes
+        status: started
+    - name: enable port 80 in firewall
+      firewalld:
+        port: 80/tcp
+        permanent: true
+        state: enabled
