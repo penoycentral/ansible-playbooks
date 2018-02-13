@@ -16,6 +16,12 @@
         state: started
     - name: enable port 80 in firewall
       firewalld:
-        port: 80/tcp
+        service: http
         permanent: true
         state: enabled
+      notify: firewalld
+  handlers:
+    - name: firewalld
+      service:
+        name: firewalld
+        state: reloaded
