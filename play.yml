@@ -13,6 +13,11 @@
         name: httpd
         enabled: yes
         state: started
+    - name: start and enabled firewalld service
+      service:
+        name: firewalld
+        enabled: yes
+        state: started
     - name: enable port 80 in firewall
       firewalld:
         service: http
