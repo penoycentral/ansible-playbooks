@@ -2,30 +2,5 @@
   vars:
     motd_message: "Welcome to {{ ansible_hostname}}"
   roles:
-    - kbrebanov.motd
   tasks:
-    - name: Install apache webserver
-      package:
-        name: httpd
-        state: present
-    - name: Start and enable httpd
-      service:
-        name: httpd
-        state: started
-        enabled: yes
-    - name: Start and enable firewalld 
-      service:
-        name: firewalld
-        state: started
-        enabled: yes
-    - name: Allow service httpd in firewalld
-      firewalld:
-        service: http
-        permanent: true
-        state: enabled
-      notify: reload-firewalld
   handlers:
-    - name: reload-firewalld
-      service:
-        name: firewalld
-        state: reloaded
